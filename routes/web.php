@@ -12,3 +12,5 @@
 */
 
 Route::get('/', 'Homecontroller@index');
+Route::get('upload', 'Homecontroller@upload');
+Route::post('file_upload', 'Homecontroller@file_upload');
