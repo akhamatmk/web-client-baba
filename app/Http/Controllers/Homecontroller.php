@@ -8,8 +8,17 @@ class Homecontroller extends Controller
 {
     function index()
     {
-    	$data = get_api_response('/file');
-    	return view('welcome')->with('data', $data);
+    	try {
+    		$client = new \GuzzleHttp\Client();
+			$response = $client->get(env('URL_API', 'https://api-baba.herokuapp.com').'/file');
+	    	$data = json_decode($response->getBody()->getContents(), true);
+	    	return view('welcome')->with('data', $data);
+
+	    }catch(\Exception $e) {
+            return view('welcome')->with('data', null);
+        }
+
+    	
     }
 
     public function upload()

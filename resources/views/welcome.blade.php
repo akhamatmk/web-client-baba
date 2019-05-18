@@ -10,14 +10,14 @@
             <th>Image</th>
             <th>Note</th>
         </tr>
-        @foreach($data->data as $key => $value)
+        @foreach($data['data'] as $key => $value)
             <tr>
                 <td>{{ $key + 1 }}</td>
-                <td>{{ $value->email }}</td>
-                <td>{{ $value->username }}</td>
-                <td><img height="100px" width="100px" src="{{ $value->image }}" /></td>
+                <td>{{ $value['email'] }}</td>
+                <td>{{ $value['username'] }}</td>
+                <td><img height="100px" width="100px" src="{{ $value['image'] }}" /></td>
                 <td>
-                    @if($value->note)
+                    @if($value['note'])
                         true
                     @else
                         false
